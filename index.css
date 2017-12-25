@@ -1,0 +1,21 @@
+body{
+    background: linear-gradient(45deg, blue, red);
+    padding: 0px;
+    margin: 0px;
+}
+.active{
+	background-color: rgba(0, 0, 0, 0.705);
+	width:.5%;
+    height:.5%;
+    overflow: hidden;
+    display: inline-block;
+}
+.inactive{
+	background-color: rgba(255, 255, 255, 0.493);
+	width:.5%;
+	height:.5%;
+    overflow: hidden;
+    display: inline-block;
+}
+.rowDiv{
+}
