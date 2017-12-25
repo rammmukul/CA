@@ -1,6 +1,15 @@
 <link rel="stylesheet" type="text/css"href="index.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 <body>
-    <div id="rule"></div>
+    <nav class="navbar fixed-bottom navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+                <div id="rule"></div>
+        </a>
+        <form class="form-inline">
+            <input id="ruleNo" class="form-control mr-sm-2" type="text"/>
+            <button class="btn btn-inline" onclick="{setRule();return false}">set</button>
+        </form>
+    </nav>
     <div id="CA"></div>
 </body>
 <script src="index.js"></script>

@@ -1,5 +1,5 @@
 var CA=[]
-var cells=200
+var cells=100
 function getRandomRow(){
     row=[]
     for (var i=0;i<cells;i++){
@@ -15,13 +15,19 @@ function getSingleCell(){
     return row
 }
 var rule=[0,1,0,0,1,0,0,1]
+setRuleNo(parseInt(Math.random()*256))
 function getInt(e){return parseInt(e,10)}
 function setRuleNo(no){
     rule = ('000000000' + parseInt(no, 10).toString(2)).substr(-8).split('').map(getInt)
-    document.getElementById("rule").innerText = rule
+    document.getElementById("rule").innerText = parseInt(rule.join(''),2)+" : "+rule.join('')
+}
+function setRule(){
+    setRuleNo(document.getElementById("ruleNo").value)
+    document.getElementById("CA").innerHTML=""
+    genration=0
+    mainLoop=setInterval(loop,0);
 }
 
-setRuleNo(parseInt(Math.random()*256))
 function setCell(l,n,r){
     if(l==1 && n==1 && r==1)
         return rule[0]
@@ -72,5 +78,8 @@ function renderRow(row){
 }
 function loop(){
     document.getElementById("CA").appendChild(renderRow(getNextRow()))
+    if(genration>100){
+        clearInterval(mainLoop)
+    }
 }
-setInterval(loop,0);
+var mainLoop=setInterval(loop,0);
