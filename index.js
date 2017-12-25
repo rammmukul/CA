@@ -15,6 +15,13 @@ function getSingleCell(){
     return row
 }
 var rule=[0,1,0,0,1,0,0,1]
+function getInt(e){return parseInt(e,10)}
+function setRuleNo(no){
+    rule = ('000000000' + parseInt(no, 10).toString(2)).substr(-8).split('').map(getInt)
+    document.getElementById("rule").innerText = rule
+}
+
+setRuleNo(parseInt(Math.random()*256))
 function setCell(l,n,r){
     if(l==1 && n==1 && r==1)
         return rule[0]
@@ -66,4 +73,4 @@ function renderRow(row){
 function loop(){
     document.getElementById("CA").appendChild(renderRow(getNextRow()))
 }
-setInterval(loop,100);
+setInterval(loop,0);
