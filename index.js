@@ -1,6 +1,6 @@
 var CA=[]
-var height=Math.floor($(window).height()/4)
-var width=Math.floor($(window).width()/4)-1
+var height=Math.floor($(window).innerHeight()/8)
+var width=Math.floor($(window).innerWidth()/8)-1
 var cells=width
 var prevRow
 var genration=0
