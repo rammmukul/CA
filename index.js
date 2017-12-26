@@ -1,5 +1,10 @@
 var CA=[]
-var cells=100
+var height=Math.floor($(window).height()/4)
+var width=Math.floor($(window).width()/4)-1
+var cells=width
+var prevRow
+var genration=0
+var rule=[0,1,0,0,1,0,0,1]
 function getRandomRow(){
     row=[]
     for (var i=0;i<cells;i++){
@@ -14,7 +19,6 @@ function getSingleCell(){
     }
     return row
 }
-var rule=[0,1,0,0,1,0,0,1]
 setRuleNo(parseInt(Math.random()*256))
 function getInt(e){return parseInt(e,10)}
 function setRuleNo(no){
@@ -46,8 +50,6 @@ function setCell(l,n,r){
     if(l==0 && n==0 && r==0)
         return rule[7]
 }
-var prevRow
-var genration=0
 function getNextRow(){
     genration++
     if(genration==1){
@@ -78,7 +80,7 @@ function renderRow(row){
 }
 function loop(){
     document.getElementById("CA").appendChild(renderRow(getNextRow()))
-    if(genration>100){
+    if(genration>height){
         clearInterval(mainLoop)
     }
 }

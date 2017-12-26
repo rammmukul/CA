@@ -4,24 +4,29 @@ body{
     margin: 0px;
     height: 100%;
     overflow: hidden;
+    margin: auto;
 }
 .active{
 	background-color: rgba(0, 0, 0, 0.705);
-	width:1%;
-    height:1%;
+	width:4px;
+    height:4px;
     overflow: hidden;
     display: inline-block;
     box-sizing: border-box;
-    border: 1px solid white;
+    border-right: 1px groove rgba(255, 255, 255, 0.4);
+    border-bottom: 1px groove rgba(255, 255, 255, 0.4);
 }
 .inactive{
 	background-color: rgba(255, 255, 255, 0.493);
-	width:1%;
-	height:1%;
+	width:4px;
+	height:4px;
     overflow: hidden;
     display: inline-block;
     box-sizing: border-box;
-    border: 1px solid white;
+    border-right: 1px groove rgba(255, 255, 255, 0.4);
+    border-bottom: 1px groove rgba(255, 255, 255, 0.4);
 }
-.rowDiv{
+#CA{
+    border-left: 1px groove rgba(255, 255, 255, 0.4);
+    border-top: 1px groove rgba(255, 255, 255, 0.4);
 }
