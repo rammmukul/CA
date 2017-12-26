@@ -1,6 +1,6 @@
 var CA=[]
-var height=Math.floor($(window).innerHeight()/8)
-var width=Math.floor($(window).innerWidth()/8)-1
+var height=Math.floor($(window).innerHeight()/10)
+var width=Math.floor($(window).innerWidth()/10)-1
 var cells=width
 var prevRow
 var genration=0
@@ -23,7 +23,7 @@ setRuleNo(parseInt(Math.random()*256))
 function getInt(e){return parseInt(e,10)}
 function setRuleNo(no){
     rule = ('000000000' + parseInt(no, 10).toString(2)).substr(-8).split('').map(getInt)
-    document.getElementById("rule").innerText = parseInt(rule.join(''),2)+" : "+rule.join('')
+    document.getElementById("rule").innerText = parseInt(rule.join(''),2)+" : "+rule.join('')+";"+width+"x"+height
 }
 function setRule(){
     setRuleNo(document.getElementById("ruleNo").value)

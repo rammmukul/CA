@@ -8,8 +8,8 @@ body{
 }
 .active{
 	background-color: rgba(0, 0, 0, 0.705);
-	width:8px;
-    height:8px;
+	width:10px;
+    height:10px;
     overflow: hidden;
     display: inline-block;
     box-sizing: border-box;
@@ -18,8 +18,8 @@ body{
 }
 .inactive{
 	background-color: rgba(255, 255, 255, 0.493);
-	width:8px;
-	height:8px;
+	width:10px;
+	height:10px;
     overflow: hidden;
     display: inline-block;
     box-sizing: border-box;
