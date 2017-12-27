@@ -1,7 +1,7 @@
 var CA=[]
 var CADiv=document.getElementById("CA")
-var height=Math.floor($(window).innerHeight()/10)
-var width=Math.floor($(window).innerWidth()/10)-1
+var height=Math.floor($(window).innerHeight()/15)
+var width=Math.floor($(window).innerWidth()/15)-1
 var cells=width
 var prevRow
 var genration=0
@@ -80,14 +80,14 @@ function renderRow(row){
     return rowDiv;
 }
 function scroll(){
-    CADiv.firstChild.remove()
+    CADiv.removeChild(CADiv.childNodes[0])
     CADiv.appendChild(renderRow(getNextRow()))
 }
 function loop(){
     CADiv.appendChild(renderRow(getNextRow()))
     if(genration>height){
         clearInterval(mainLoop)
-        setInterval(scroll,0)
+        setInterval(scroll,1000)
     }
 }
 var mainLoop=setInterval(loop,0);

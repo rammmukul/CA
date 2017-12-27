@@ -1,5 +1,5 @@
 body{
-    background: linear-gradient(45deg, blue, red);
+    background: linear-gradient(45deg, slateblue, salmon);
     padding: 0px;
     margin: 0px;
     height: 100%;
@@ -7,26 +7,36 @@ body{
     margin: auto;
 }
 .active{
-	background-color: rgba(0, 0, 0, 0.705);
-	width:10px;
-    height:10px;
+	background-color: rgba(0, 0, 0, 0.512);
+	width:15px;
+    height:15px;
     overflow: hidden;
     display: inline-block;
     box-sizing: border-box;
-    border-right: 1px groove rgba(255, 255, 255, 0.4);
-    border-bottom: 1px groove rgba(255, 255, 255, 0.4);
+    border-right: 1px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    animation-name: example;
+    animation-duration: 10s;
 }
 .inactive{
-	background-color: rgba(255, 255, 255, 0.493);
-	width:10px;
-	height:10px;
+	background-color: rgba(255, 255, 255, 0.512);
+	width:15px;
+	height:15px;
     overflow: hidden;
     display: inline-block;
     box-sizing: border-box;
-    border-right: 1px groove rgba(255, 255, 255, 0.4);
-    border-bottom: 1px groove rgba(255, 255, 255, 0.4);
+    border-right: 1px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    animation-name: example;
+    animation-duration: 10s;
+}
+@keyframes example {
+    from {
+        background-color: transparent;
+        border-color: transparent;
+    }
 }
 #CA{
-    border-left: 1px groove rgba(255, 255, 255, 0.4);
-    border-top: 1px groove rgba(255, 255, 255, 0.4);
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
 }
