@@ -6,10 +6,9 @@ body{
     overflow: hidden;
     margin: auto;
 }
-.active{
-	background-color: rgba(0, 0, 0, 0.512);
-	width:15px;
-    height:15px;
+.box{
+	width:25px;
+	height:25px;
     overflow: hidden;
     display: inline-block;
     box-sizing: border-box;
@@ -18,17 +17,11 @@ body{
     animation-name: example;
     animation-duration: 10s;
 }
+.active{
+	background-color: rgba(0, 0, 0, 0.512);
+}
 .inactive{
 	background-color: rgba(255, 255, 255, 0.512);
-	width:15px;
-	height:15px;
-    overflow: hidden;
-    display: inline-block;
-    box-sizing: border-box;
-    border-right: 1px solid rgba(255, 255, 255, 0.4);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-    animation-name: example;
-    animation-duration: 10s;
 }
 @keyframes example {
     from {

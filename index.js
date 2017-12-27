@@ -1,7 +1,7 @@
 var CA=[]
 var CADiv=document.getElementById("CA")
-var height=Math.floor($(window).innerHeight()/15)
-var width=Math.floor($(window).innerWidth()/15)-1
+var height=Math.floor($(window).innerHeight()/25)
+var width=Math.floor($(window).innerWidth()/25)-1
 var cells=width
 var prevRow
 var genration=0
@@ -25,11 +25,13 @@ function getInt(e){return parseInt(e,10)}
 function setRuleNo(no){
     rule = ('000000000' + parseInt(no, 10).toString(2)).substr(-8).split('').map(getInt)
     document.getElementById("rule").innerText = parseInt(rule.join(''),2)+" : "+rule.join('')+";"+width+"x"+height
+    document.getElementById("ruleNo").value = parseInt(rule.join(''),2)
 }
 function setRule(){
     setRuleNo(document.getElementById("ruleNo").value)
     document.getElementById("CA").innerHTML=""
     genration=0
+    clearInterval(scrollLoop)
     mainLoop=setInterval(loop,0);
 }
 
@@ -74,7 +76,7 @@ function renderRow(row){
     rowDiv.className="rowDiv"
     for(var i of row){
         var block = document.createElement("block")
-        block.className=i?"active":"inactive"
+        block.className=i?"active box":"inactive box"
         rowDiv.appendChild(block)
     }
     return rowDiv;
@@ -87,7 +89,7 @@ function loop(){
     CADiv.appendChild(renderRow(getNextRow()))
     if(genration>height){
         clearInterval(mainLoop)
-        setInterval(scroll,1000)
+        scrollLoop=setInterval(scroll,1000)
     }
 }
 var mainLoop=setInterval(loop,0);
