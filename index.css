@@ -14,7 +14,7 @@ body{
     box-sizing: border-box;
     border-right: 1px solid rgba(255, 255, 255, 0.4);
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-    animation-name: example;
+    animation-name: fade-in;
     animation-duration: 10s;
 }
 .active{
@@ -23,7 +23,7 @@ body{
 .inactive{
 	background-color: rgba(255, 255, 255, 0.512);
 }
-@keyframes example {
+@keyframes fade-in {
     from {
         background-color: transparent;
         border-color: transparent;
