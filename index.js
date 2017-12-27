@@ -1,11 +1,14 @@
-var CA=[]
 var CADiv=document.getElementById("CA")
 var height=Math.floor($(window).innerHeight()/25)
 var width=Math.floor($(window).innerWidth()/25)-1
 var cells=width
 var prevRow
 var genration=0
-var rule=[0,1,0,0,1,0,0,1]
+var rule=[]
+
+setRuleNo(parseInt(Math.random()*256))
+var mainLoop=setInterval(loop,0);
+
 function getRandomRow(){
     row=[]
     for (var i=0;i<cells;i++){
@@ -13,6 +16,7 @@ function getRandomRow(){
     }
     return row
 }
+
 function getSingleCell(){
     row=[]
     for (var i=0;i<cells;i++){
@@ -20,13 +24,14 @@ function getSingleCell(){
     }
     return row
 }
-setRuleNo(parseInt(Math.random()*256))
+
 function getInt(e){return parseInt(e,10)}
 function setRuleNo(no){
     rule = ('000000000' + parseInt(no, 10).toString(2)).substr(-8).split('').map(getInt)
     document.getElementById("rule").innerText = parseInt(rule.join(''),2)+" : "+rule.join('')+";"+width+"x"+height
     document.getElementById("ruleNo").value = parseInt(rule.join(''),2)
 }
+
 function setRule(){
     setRuleNo(document.getElementById("ruleNo").value)
     document.getElementById("CA").innerHTML=""
@@ -53,6 +58,7 @@ function setCell(l,n,r){
     if(l==0 && n==0 && r==0)
         return rule[7]
 }
+
 function getNextRow(){
     genration++
     if(genration==1){
@@ -71,6 +77,7 @@ function getNextRow(){
     prevRow=row
     return row
 }
+
 function renderRow(row){
     var rowDiv=document.createElement("div")
     rowDiv.className="rowDiv"
@@ -81,10 +88,12 @@ function renderRow(row){
     }
     return rowDiv;
 }
+
 function scroll(){
     CADiv.removeChild(CADiv.childNodes[0])
     CADiv.appendChild(renderRow(getNextRow()))
 }
+
 function loop(){
     CADiv.appendChild(renderRow(getNextRow()))
     if(genration>height){
@@ -92,4 +101,3 @@ function loop(){
         scrollLoop=setInterval(scroll,1000)
     }
 }
-var mainLoop=setInterval(loop,0);
