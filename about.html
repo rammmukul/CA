@@ -1,0 +1,66 @@
+<link rel="stylesheet" type="text/css" href="index.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
+<style>
+    :link {
+        color: rgb(172, 255, 0);
+    }
+
+    :visited {
+        color: rgba(175, 255, 47, 0.658);
+    }
+</style>
+
+<body style="overflow: auto;">
+    <nav class="navbar fixed-bottom navbar-expand-md navbar-dark bg-dark">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            </li class="nav-item">
+            <a href="index.html" class="nav-link active">Go back</a>
+            </li>
+        </ul>
+    </nav>
+
+    <center>
+        <h3 style="color:white;">
+            <p>
+                This is an implementation of Cellular automaton, more specifically Elementary cellular automaton which despite consisting
+                of very simple rules is capable of very complex behavior
+                <a href="https://en.wikipedia.org/wiki/Rule_110">(it can even simulate any computer *Turing complete)</a>.
+            </p>
+            <p>
+                The simple rules are that the color (or on/off state) of a cell is determined by the color of three cells just above. The
+                rule in this site represent
+                <a href="https://en.wikipedia.org/wiki/Wolfram_code">Wolfram code</a> which is a number between 0 and 255. Which intern specifies which configurations of above
+                three cells will result in which color. the binary number(00011110) represent the color of a cell corresponding
+                to all the possible combination of above three cells.
+            </p>
+            <p>
+                And here is rule 126 for visualization.
+            </p>
+            <img src="rule30.svg" alt="rule30" />
+        </h3>
+    </center>
+
+    <ul style="color:white;">
+        Other resources
+        <li>
+            <a href="https://en.wikipedia.org/wiki/Elementary_cellular_automaton">Wikipedia page</a>
+        </li>
+        <li>
+            <a href="http://atlas.wolfram.com/01/01/">Analyse Elementary cellular automaton more</a>
+        </li>
+        <li>
+            <a href="http://mathworld.wolfram.com/CellularAutomaton.html">Wolfarm mathWorld page</a>
+        </li>
+        <li>
+            <a href="https://www.wolframscience.com/nks/">A free book about the topic and way more</a>
+        </li>
+        <li>
+            <a href="http://cubes.io/">A 3D version</a>
+        </li>
+    </ul>
+</body>

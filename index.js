@@ -6,7 +6,7 @@ var prevRow
 var genration=0
 var rule=[]
 
-setRuleNo(parseInt(Math.random()*256))
+setRuleNo(parseInt(Math.random() * 256));
 var mainLoop=setInterval(loop,0);
 
 function getRandomRow(){
@@ -28,16 +28,8 @@ function getSingleCell(){
 function getInt(e){return parseInt(e,10)}
 function setRuleNo(no){
     rule = ('000000000' + parseInt(no, 10).toString(2)).substr(-8).split('').map(getInt)
-    document.getElementById("rule").innerText = parseInt(rule.join(''),2)+" : "+rule.join('')+";"+width+"x"+height
+    document.getElementById("rule").innerText = "rule:"+parseInt(rule.join(''),2)+" : "+rule.join('')+" grid size:"+width+"x"+height
     document.getElementById("ruleNo").value = parseInt(rule.join(''),2)
-}
-
-function setRule(){
-    setRuleNo(document.getElementById("ruleNo").value)
-    document.getElementById("CA").innerHTML=""
-    genration=0
-    clearInterval(scrollLoop)
-    mainLoop=setInterval(loop,0);
 }
 
 function setCell(l,n,r){
@@ -100,4 +92,23 @@ function loop(){
         clearInterval(mainLoop)
         scrollLoop=setInterval(scroll,1000)
     }
+}
+
+function setRule(){
+    if(typeof document.getElementById("ruleNo").value=="number")
+        setRuleNo(document.getElementById("ruleNo").value)
+    document.getElementById("CA").innerHTML=""
+    genration=0
+    clearInterval(scrollLoop)
+    clearInterval(mainLoop)
+    mainLoop=setInterval(loop,0);
+}
+
+function setRandomRule() {
+    setRuleNo(parseInt(Math.random() * 256));
+    document.getElementById("CA").innerHTML=""
+    genration=0
+    clearInterval(scrollLoop)
+    clearInterval(mainLoop)
+    mainLoop=setInterval(loop,0);
 }
