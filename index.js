@@ -95,8 +95,7 @@ function loop(){
 }
 
 function setRule(){
-    if(typeof document.getElementById("ruleNo").value=="number")
-        setRuleNo(document.getElementById("ruleNo").value)
+    setRuleNo(document.getElementById("ruleNo").value)
     document.getElementById("CA").innerHTML=""
     genration=0
     clearInterval(scrollLoop)
