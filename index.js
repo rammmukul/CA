@@ -5,9 +5,10 @@ var cells=width
 var prevRow
 var genration=0
 var rule=[]
+var scrollLoop
+var mainLoop
 
 setRuleNo(parseInt(Math.random() * 256));
-var mainLoop=setInterval(loop,0);
 
 function getRandomRow(){
     row=[]
@@ -30,6 +31,21 @@ function setRuleNo(no){
     rule = ('000000000' + parseInt(no, 10).toString(2)).substr(-8).split('').map(getInt)
     document.getElementById("rule").innerText = "rule:"+parseInt(rule.join(''),2)+" : "+rule.join('')+" grid size:"+width+"x"+height
     document.getElementById("ruleNo").value = parseInt(rule.join(''),2)
+
+    $('#svg_5')[0].attributes.fill.value=rule[0]==1?'#000':'#fff'
+    $('#svg_9')[0].attributes.fill.value=rule[1]==1?'#000':'#fff'
+    $('#svg_13')[0].attributes.fill.value=rule[2]==1?'#000':'#fff'
+    $('#svg_17')[0].attributes.fill.value=rule[3]==1?'#000':'#fff'
+    $('#svg_21')[0].attributes.fill.value=rule[4]==1?'#000':'#fff'
+    $('#svg_25')[0].attributes.fill.value=rule[5]==1?'#000':'#fff'
+    $('#svg_29')[0].attributes.fill.value=rule[6]==1?'#000':'#fff'
+    $('#svg_33')[0].attributes.fill.value=rule[7]==1?'#000':'#fff'
+
+    document.getElementById("CA").innerHTML=""
+    genration=0
+    if(mainLoop>0){clearInterval(mainLoop)}
+    if(scrollLoop>0){clearInterval(scrollLoop)}
+    mainLoop=setInterval(loop,0);
 }
 
 function setCell(l,n,r){
@@ -96,18 +112,18 @@ function loop(){
 
 function setRule(){
     setRuleNo(document.getElementById("ruleNo").value)
-    document.getElementById("CA").innerHTML=""
-    genration=0
-    clearInterval(scrollLoop)
-    clearInterval(mainLoop)
-    mainLoop=setInterval(loop,0);
 }
 
 function setRandomRule() {
     setRuleNo(parseInt(Math.random() * 256));
-    document.getElementById("CA").innerHTML=""
-    genration=0
-    clearInterval(scrollLoop)
-    clearInterval(mainLoop)
-    mainLoop=setInterval(loop,0);
 }
+
+
+$('#svg_5')[0].onclick=()=>setRuleNo(document.getElementById("ruleNo").value^128)
+$('#svg_9')[0].onclick=()=>setRuleNo(document.getElementById("ruleNo").value^64)
+$('#svg_13')[0].onclick=()=>setRuleNo(document.getElementById("ruleNo").value^32)
+$('#svg_17')[0].onclick=()=>setRuleNo(document.getElementById("ruleNo").value^16)
+$('#svg_21')[0].onclick=()=>setRuleNo(document.getElementById("ruleNo").value^8)
+$('#svg_25')[0].onclick=()=>setRuleNo(document.getElementById("ruleNo").value^4)
+$('#svg_29')[0].onclick=()=>setRuleNo(document.getElementById("ruleNo").value^2)
+$('#svg_33')[0].onclick=()=>setRuleNo(document.getElementById("ruleNo").value^1)
