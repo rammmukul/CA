@@ -133,4 +133,4 @@ document.getElementById('svg_33').onclick = () => setRuleNo(document.getElementB
 
 navigator.serviceWorker.register('serviceWorker.js');
 
-navigator.serviceWorker.ready.then(reload);
+navigator.serviceWorker.ready.then(console.log('service worker registered'));
