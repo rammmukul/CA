@@ -29,7 +29,7 @@ function getSingleCell() {
 function getInt(e) { return parseInt(e, 10) }
 function setRuleNo(no) {
     rule = ('000000000' + parseInt(no, 10).toString(2)).substr(-8).split('').map(getInt)
-    document.getElementById("rule").innerText = "rule:" + parseInt(rule.join(''), 2) + " : " + rule.join('')
+    document.getElementById("rule").innerText = "rule:" + parseInt(rule.join(''), 2) + " : " + parseInt(rule.join(''),10);
     document.getElementById("ruleNo").value = parseInt(rule.join(''), 2)
 
     document.getElementById('svg_5').attributes.fill.value = rule[0] == 1 ? '#000' : '#fff'
@@ -111,7 +111,8 @@ function loop() {
 }
 
 function setRule() {
-    setRuleNo(document.getElementById("ruleNo").value)
+    setRuleNo(typeof parseInt(document.getElementById("ruleNo").value)=="number"?
+    document.getElementById("ruleNo").value:0)
 }
 
 function setRandomRule() {
