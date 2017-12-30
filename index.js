@@ -32,14 +32,14 @@ function setRuleNo(no) {
     document.getElementById("rule").innerText = "rule:" + parseInt(rule.join(''), 2) + " : " + rule.join('') + " grid size:" + width + "x" + height
     document.getElementById("ruleNo").value = parseInt(rule.join(''), 2)
 
-    document.getElementById('svg_5')[0].attributes.fill.value = rule[0] == 1 ? '#000' : '#fff'
-    document.getElementById('svg_9')[0].attributes.fill.value = rule[1] == 1 ? '#000' : '#fff'
-    document.getElementById('svg_13')[0].attributes.fill.value = rule[2] == 1 ? '#000' : '#fff'
-    document.getElementById('svg_17')[0].attributes.fill.value = rule[3] == 1 ? '#000' : '#fff'
-    document.getElementById('svg_21')[0].attributes.fill.value = rule[4] == 1 ? '#000' : '#fff'
-    document.getElementById('svg_25')[0].attributes.fill.value = rule[5] == 1 ? '#000' : '#fff'
-    document.getElementById('svg_29')[0].attributes.fill.value = rule[6] == 1 ? '#000' : '#fff'
-    document.getElementById('svg_33')[0].attributes.fill.value = rule[7] == 1 ? '#000' : '#fff'
+    document.getElementById('svg_5').attributes.fill.value = rule[0] == 1 ? '#000' : '#fff'
+    document.getElementById('svg_9').attributes.fill.value = rule[1] == 1 ? '#000' : '#fff'
+    document.getElementById('svg_13').attributes.fill.value = rule[2] == 1 ? '#000' : '#fff'
+    document.getElementById('svg_17').attributes.fill.value = rule[3] == 1 ? '#000' : '#fff'
+    document.getElementById('svg_21').attributes.fill.value = rule[4] == 1 ? '#000' : '#fff'
+    document.getElementById('svg_25').attributes.fill.value = rule[5] == 1 ? '#000' : '#fff'
+    document.getElementById('svg_29').attributes.fill.value = rule[6] == 1 ? '#000' : '#fff'
+    document.getElementById('svg_33').attributes.fill.value = rule[7] == 1 ? '#000' : '#fff'
 
     document.getElementById("CA").innerHTML = ""
     genration = 0
@@ -119,14 +119,14 @@ function setRandomRule() {
 }
 
 
-document.getElementById('svg_5')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 128)
-document.getElementById('svg_9')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 64)
-document.getElementById('svg_13')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 32)
-document.getElementById('svg_17')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 16)
-document.getElementById('svg_21')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 8)
-document.getElementById('svg_25')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 4)
-document.getElementById('svg_29')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 2)
-document.getElementById('svg_33')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 1)
+document.getElementById('svg_5').onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 128)
+document.getElementById('svg_9').onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 64)
+document.getElementById('svg_13').onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 32)
+document.getElementById('svg_17').onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 16)
+document.getElementById('svg_21').onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 8)
+document.getElementById('svg_25').onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 4)
+document.getElementById('svg_29').onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 2)
+document.getElementById('svg_33').onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 1)
 
 
 
