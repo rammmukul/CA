@@ -1,6 +1,6 @@
 var CADiv = document.getElementById("CA")
-var height = Math.floor($(window).innerHeight() / 25)
-var width = Math.floor($(window).innerWidth() / 25) - 1
+var height = Math.floor(window.innerHeight() / 25)
+var width = Math.floor(window.innerWidth() / 25) - 1
 var cells = width
 var prevRow
 var genration = 0
@@ -32,14 +32,14 @@ function setRuleNo(no) {
     document.getElementById("rule").innerText = "rule:" + parseInt(rule.join(''), 2) + " : " + rule.join('') + " grid size:" + width + "x" + height
     document.getElementById("ruleNo").value = parseInt(rule.join(''), 2)
 
-    $('#svg_5')[0].attributes.fill.value = rule[0] == 1 ? '#000' : '#fff'
-    $('#svg_9')[0].attributes.fill.value = rule[1] == 1 ? '#000' : '#fff'
-    $('#svg_13')[0].attributes.fill.value = rule[2] == 1 ? '#000' : '#fff'
-    $('#svg_17')[0].attributes.fill.value = rule[3] == 1 ? '#000' : '#fff'
-    $('#svg_21')[0].attributes.fill.value = rule[4] == 1 ? '#000' : '#fff'
-    $('#svg_25')[0].attributes.fill.value = rule[5] == 1 ? '#000' : '#fff'
-    $('#svg_29')[0].attributes.fill.value = rule[6] == 1 ? '#000' : '#fff'
-    $('#svg_33')[0].attributes.fill.value = rule[7] == 1 ? '#000' : '#fff'
+    document.getElementById('svg_5')[0].attributes.fill.value = rule[0] == 1 ? '#000' : '#fff'
+    document.getElementById('svg_9')[0].attributes.fill.value = rule[1] == 1 ? '#000' : '#fff'
+    document.getElementById('svg_13')[0].attributes.fill.value = rule[2] == 1 ? '#000' : '#fff'
+    document.getElementById('svg_17')[0].attributes.fill.value = rule[3] == 1 ? '#000' : '#fff'
+    document.getElementById('svg_21')[0].attributes.fill.value = rule[4] == 1 ? '#000' : '#fff'
+    document.getElementById('svg_25')[0].attributes.fill.value = rule[5] == 1 ? '#000' : '#fff'
+    document.getElementById('svg_29')[0].attributes.fill.value = rule[6] == 1 ? '#000' : '#fff'
+    document.getElementById('svg_33')[0].attributes.fill.value = rule[7] == 1 ? '#000' : '#fff'
 
     document.getElementById("CA").innerHTML = ""
     genration = 0
@@ -119,14 +119,14 @@ function setRandomRule() {
 }
 
 
-$('#svg_5')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 128)
-$('#svg_9')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 64)
-$('#svg_13')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 32)
-$('#svg_17')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 16)
-$('#svg_21')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 8)
-$('#svg_25')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 4)
-$('#svg_29')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 2)
-$('#svg_33')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 1)
+document.getElementById('svg_5')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 128)
+document.getElementById('svg_9')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 64)
+document.getElementById('svg_13')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 32)
+document.getElementById('svg_17')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 16)
+document.getElementById('svg_21')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 8)
+document.getElementById('svg_25')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 4)
+document.getElementById('svg_29')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 2)
+document.getElementById('svg_33')[0].onclick = () => setRuleNo(document.getElementById("ruleNo").value ^ 1)
 
 
 
