@@ -18,7 +18,10 @@ function precache() {
       './index.js',
       './index.css',
       './about.html',
-      './rule30.svg'
+      './rule30.svg',
+      '/bootstrap.min.css',
+      'jquery-3.2.1.slim.min.js',
+      'bootstrap.min.js'
     ]);
   });
 }
