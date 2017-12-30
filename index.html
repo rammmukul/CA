@@ -5,11 +5,9 @@
 
 <body onresize="if(!/android.*firefox/g.test(navigator.userAgent.toLowerCase()))location=location;">
     <nav class="navbar fixed-bottom navbar-dark bg-dark">
-        <span class="navbar-brand">
-            <div id="rule"></div>
-            <?xml version="1.0" encoding="UTF-8"?>
-        </span>
-        <span>
+        <div id="rule" class="col-auto navbar-text"></div>
+        <?xml version="1.0" encoding="UTF-8"?>
+        <span class="col-auto">
             <svg id="ruleImg" width="600" height="60" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
             
                 <g>
@@ -49,14 +47,14 @@
                 </g>
             </svg>
         </span>
-        <form class="form-inline my-2 my-lg-0 input-group">
-            <input id="ruleNo" class="form-control mr-sm-2" type="number" max="255" min="0" />
+        <form class="form-inline col-3 input-group">
+            <input id="ruleNo" class="form-control col-3" type="number" max="255" min="0" />
             <span class="input-group-btn">
                 <button class="btn btn-inline btn-outline-primary" onclick="{setRule();return false}">set</button>
                 <button class="btn btn-inline btn-outline-secondary" onclick="{setRandomRule();return false}">random</button>
             </span>
         </form>
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav col-auto">
             <li class="nav-item">
                 <a href="about.html" class="nav-link active">About</a>
             </li>
