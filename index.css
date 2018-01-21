@@ -8,8 +8,8 @@ body{
     margin: auto;
 }
 .box{
-	width:25px;
-	height:25px;
+	width:16px;
+	height:16px;
     overflow: hidden;
     display: inline-block;
     box-sizing: border-box;

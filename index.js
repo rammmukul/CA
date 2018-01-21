@@ -1,6 +1,6 @@
 var CADiv = document.getElementById("CA")
-var height = Math.floor(window.innerHeight / 25)
-var width = Math.floor(window.innerWidth / 25) - 1
+var height = Math.floor(window.innerHeight / 16)
+var width = Math.floor(window.innerWidth / 16) - 1
 var cells = width
 var prevRow
 var genration = 0
