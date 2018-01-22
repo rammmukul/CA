@@ -13,14 +13,9 @@
             <button class="btn btn-inline btn-outline-primary form-control" onclick="{setRule();return false}">set</button>
             <button class="btn btn-inline btn-outline-secondary form-control" onclick="{setRandomRule();return false}">random</button>
         </span>
-        <ul class="navbar-nav col-auto">
-            <li class="nav-item">
-                <a href="about.html" class="nav-link active">About</a>
-            </li>
-        </ul>
         <?xml version="1.0" encoding="UTF-8"?>
         <span class="col-auto">
-            <svg id="ruleImg" width="100%" height="60" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+            <svg id="ruleImg" width="550" height="50" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
                 <g>
                     <title>Layer 1</title>
                     <rect id="svg_2" height="18" width="18" stroke-width="0.5" stroke="#f4ebeb" fill="#000000" y="8" x="7" />
@@ -56,8 +51,21 @@
                     <rect id="svg_32" height="18" width="18" stroke-width="0.5" stroke="#f4ebeb" fill="#FFFFFF" y="8" x="522" />
                     <rect id="svg_33" height="18" width="18" stroke-width="0.5" stroke="#f4ebeb" fill="#FFFFFF" y="26" x="504" />
                 </g>
+                <style>
+                    @media all and (max-width: 720px) {
+                        svg {
+                            display: none;
+                        }
+                    }
+                </style>
             </svg>
         </span>
+
+        <ul class="navbar-nav col-auto">
+            <li class="nav-item">
+                <a href="about.html" class="nav-link active">About</a>
+            </li>
+        </ul>
     </nav>
     <center>
         <div id="CA"></div>
