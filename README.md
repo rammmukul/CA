@@ -1,1 +1,1 @@
-cellular automata checkout at: rammmukul.github.io/CA/index.html
+cellular automata checkout at: [rammmukul.github.io/CA/index.html](rammmukul.github.io/CA/index.html)
