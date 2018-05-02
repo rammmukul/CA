@@ -19,7 +19,7 @@ function precache() {
             './index.css',
             './about.html',
             './rule30.svg',
-            '/bootstrap.min.css'
+            './bootstrap.min.css'
         ]);
     });
 }
