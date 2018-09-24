@@ -7,15 +7,15 @@ self.addEventListener('install', function (evt) {
 })
 
 self.addEventListener('fetch', function (evt) {
-  console.log('The service worker is serving the asset.')
+  console.log('The service worker is serving the asset.', evt.request)
   evt.respondWith(fromCache(evt.request).catch(console.error))
 })
 
 function precache() {
   return caches.open(CACHE).then(function (cache) {
     return cache.addAll([
-      '/',
-      '/manifest.json',
+      './',
+      './manifest.json',
       './index.html',
       './index.js',
       './index.css',
