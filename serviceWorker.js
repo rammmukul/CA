@@ -14,22 +14,22 @@ self.addEventListener('fetch', function (evt) {
 function precache() {
   return caches.open(CACHE).then(function (cache) {
     return cache.addAll([
-      './',
-      './manifest.json',
-      './index.html',
-      './index.js',
-      './index.css',
-      './about.html',
-      './imgs/rule30.svg',
-      './imgs/icon.svg',
-      './imgs/512x512.png',
-      './imgs/ldpi.png',
-      './imgs/mdpi.png',
-      './imgs/hdpi.png',
-      './imgs/xhdpi.png',
-      './imgs/xxhdpi.png',
-      './imgs/xxxhdpi.png',
-      './bootstrap.min.css'
+      '/CA/',
+      '/CA/manifest.json',
+      '/CA/index.html',
+      '/CA/index.js',
+      '/CA/index.css',
+      '/CA/about.html',
+      '/CA/imgs/rule30.svg',
+      '/CA/imgs/icon.svg',
+      '/CA/imgs/512x512.png',
+      '/CA/imgs/ldpi.png',
+      '/CA/imgs/mdpi.png',
+      '/CA/imgs/hdpi.png',
+      '/CA/imgs/xhdpi.png',
+      '/CA/imgs/xxhdpi.png',
+      '/CA/imgs/xxxhdpi.png',
+      '/CA/bootstrap.min.css'
     ])
   })
 }
