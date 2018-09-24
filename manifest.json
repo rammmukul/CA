@@ -3,49 +3,49 @@
   "name": "Callular Automata",
   "icons": [
     {
-      "src": "/imgs/icon.svg",
+      "src": "/CA/imgs/icon.svg",
       "type": "image/svg",
       "sizes": "480x480"
     },
     {
-      "src": "/imgs/512x512.png",
+      "src": "/CA/imgs/512x512.png",
       "type": "image/png",
       "sizes": "512x512"
     },
     {
-      "src": "/imgs/ldpi.png",
+      "src": "/CA/imgs/ldpi.png",
       "type": "image/png",
       "sizes": "36x36"
     },
     {
-      "src": "/imgs/mdpi.png",
+      "src": "/CA/imgs/mdpi.png",
       "type": "image/png",
       "sizes": "48x48"
     },
     {
-      "src": "/imgs/hdpi.png",
+      "src": "/CA/imgs/hdpi.png",
       "type": "image/png",
       "sizes": "72x72"
     },
     {
-      "src": "/imgs/xhdpi.png",
+      "src": "/CA/imgs/xhdpi.png",
       "type": "image/png",
       "sizes": "96x96"
     },
     {
-      "src": "/imgs/xxhdpi.png",
+      "src": "/CA/imgs/xxhdpi.png",
       "type": "image/png",
       "sizes": "144x144"
     },
     {
-      "src": "/imgs/xxxhdpi.png",
+      "src": "/CA/imgs/xxxhdpi.png",
       "type": "image/png",
       "sizes": "192x192"
     }
   ],
-  "start_url": "/",
+  "start_url": "/CA/",
   "background_color": "#6a5acd",
   "display": "minimal-ui",
-  "scope": "/",
+  "scope": "/CA/",
   "theme_color": "#6a5acd"
 }
