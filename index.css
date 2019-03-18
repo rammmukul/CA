@@ -26,8 +26,10 @@ body{
 }
 @keyframes fade-in {
     from {
-        background-color: transparent;
-        border-color: transparent;
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
 #CA{
