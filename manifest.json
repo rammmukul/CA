@@ -45,7 +45,7 @@
   ],
   "start_url": "/CA/",
   "background_color": "#6a5acd",
-  "display": "minimal-ui",
+  "display": "standalone",
   "scope": "/CA/",
   "theme_color": "#6a5acd"
 }
