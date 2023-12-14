@@ -6,14 +6,16 @@
     <link rel="manifest" href="/CA/manifest.json">
 </head>
 
-<body onresize="if(!/android.*firefox/g.test(navigator.userAgent.toLowerCase()))location=location;">
-    <nav class="navbar fixed-bottom navbar-dark bg-dark align-content-around justify-content-around">
+<body>
+    <nav class="navbar fixed-bottom navbar-dark align-content-around justify-content-around">
         <div id="rule" class="col-auto navbar-text"></div>
         <span class="form-inline">
             <input id="ruleNo" class="form-control" type="number" max="255" min="0" style="width:5em;" />
-            <button class="btn btn-inline btn-outline-primary form-control" onclick="{setRule();return false}" style="width:5em;" >set</button>
-            <button class="btn btn-inline btn-outline-secondary form-control" onclick="{setRandomRule();return false}" style="width:5em;" >random</button>
+            <button class="btn btn-inlin btn-primary form-control" onclick="{setRule();return false}" style="width:5em;" >set</button>
+            <button class="btn btn-inline btn-secondary form-control" onclick="{setRandomRule();return false}" style="width:5em;" >random</button>
         </span>
+        <input id="scale" type="range" name="scale" max="20" min="2" value="2">
+        <input id="skew" type="range" name="scale" max="100" min="0"  value="50" step="0.1">
         <?xml version="1.0" encoding="UTF-8"?>
         <span class="col-auto">
             <svg id="ruleImg" width="550" height="50" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
@@ -68,8 +70,6 @@
             </li>
         </ul>
     </nav>
-    <center>
-        <div id="CA"></div>
-    </center>
+    <canvas id="canvas"></canvas>
 </body>
 <script src="/CA/index.js"></script>

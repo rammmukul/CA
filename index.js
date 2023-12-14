@@ -1,19 +1,58 @@
-var CADiv = document.getElementById("CA")
-var height = Math.floor(window.innerHeight / 16)
-var width = Math.floor(window.innerWidth / 16) - 1
-var cells = width
-var prevRow
-var genration = 0
-var rule = []
-var scrollLoop
-var mainLoop
+let canvas = document.getElementById("canvas")
+let scale = document.getElementById("scale")
+let skewInput = document.getElementById("skew")
+let body = document.querySelector("body")
+let context = canvas.getContext("2d")
+
+let prevRow
+let genration = 0
+let rule = []
+let mainLoop
+let seed = 0
+let skew
+let SCALE_FACTOR
+let height
+let width
+let extraWidth
+let cells
+let count = 0
+
+function setScale() {
+    SCALE_FACTOR = parseInt(scale.value)
+    height = Math.floor(window.innerHeight / SCALE_FACTOR)
+    width = Math.floor(window.innerWidth / SCALE_FACTOR)
+    extraWidth = window.innerWidth - width * SCALE_FACTOR
+    cells = width
+    setRule()
+    console.log({ SCALE_FACTOR })
+}
+setScale()
+scale.onchange = setScale
+
+function setSkew() {
+    skew = parseFloat(skewInput.value)
+    setRule()
+    console.log({ skew })
+}
+setSkew()
+skewInput.onchange = setSkew
+
+body.onresize = function () {
+    setScale()
+}
+
+function random() {
+    const number = Math.random()
+    return ((number + skew / 100) > 1) ? 1 : 0
+}
+
 
 setRuleNo(parseInt(Math.random() * 256));
 
-function getRandomRow() {
+function getFirstRow() {
     row = []
-    for (var i = 0; i < cells; i++) {
-        row.push(Math.floor(Math.random() * 2))
+    for (let i = 0; i < cells; i++) {
+        row.push(random())
     }
     return row
 }
@@ -29,7 +68,7 @@ function getSingleCell() {
 function getInt(e) { return parseInt(e, 10) }
 function setRuleNo(no) {
     rule = ('000000000' + parseInt(no, 10).toString(2)).substr(-8).split('').map(getInt)
-    document.getElementById("rule").innerText = "rule:" + parseInt(rule.join(''), 2) + " : " + parseInt(rule.join(''),10);
+    document.getElementById("rule").innerText = "rule:" + parseInt(rule.join(''), 2) + " : " + parseInt(rule.join(''), 10);
     document.getElementById("ruleNo").value = parseInt(rule.join(''), 2)
 
     document.getElementById('svg_5').attributes.fill.value = rule[0] == 1 ? '#000' : '#fff'
@@ -41,11 +80,20 @@ function setRuleNo(no) {
     document.getElementById('svg_29').attributes.fill.value = rule[6] == 1 ? '#000' : '#fff'
     document.getElementById('svg_33').attributes.fill.value = rule[7] == 1 ? '#000' : '#fff'
 
-    document.getElementById("CA").innerHTML = ""
+    canvas.height = window.innerHeight
+    canvas.width = window.innerWidth
     genration = 0
-    if (mainLoop > 0) { clearInterval(mainLoop) }
-    if (scrollLoop > 0) { clearInterval(scrollLoop) }
-    mainLoop = setInterval(loop, 0);
+    if (mainLoop > 0) { cancelAnimationFrame(mainLoop) }
+    for (let i = 0; i < height; i++) {
+        loop()
+    }
+    mainLoop = requestAnimationFrame(function animate() {
+        let speed = 20 / SCALE_FACTOR
+        for (let i = 0; i < speed; i++) {
+            loop()
+        }
+        mainLoop = requestAnimationFrame(animate)
+    })
 }
 
 function setCell(l, n, r) {
@@ -69,50 +117,55 @@ function setCell(l, n, r) {
 
 function getNextRow() {
     genration++
-    if (genration == 1) {
-        prevRow = getRandomRow()
+    if (genration % height == 1) {
+        prevRow = getFirstRow()
         return prevRow
     }
     row = []
-    for (var i = 0; i < cells; i++) {
-        var l = i == 0 ? prevRow[cells - 1] : prevRow[i - 1]
-        var n = prevRow[i]
-        var r = i == cells - 1 ? prevRow[0] : prevRow[i + 1]
+    for (let i = 0; i < cells; i++) {
+        let l = i == 0 ? prevRow[cells - 1] : prevRow[i - 1]
+        let n = prevRow[i]
+        let r = i == cells - 1 ? prevRow[0] : prevRow[i + 1]
 
-        var cell = setCell(l, n, r)
+        let cell = setCell(l, n, r)
         row.push(cell)
     }
     prevRow = row
     return row
 }
 
+function clamp(value, min, max) {
+    if (value < min) return min
+    if (value > max) return max
+    return value
+}
+
 function renderRow(row) {
-    var rowDiv = document.createElement("div")
-    rowDiv.className = "rowDiv"
-    for (var i of row) {
-        var block = document.createElement("block")
-        block.className = i ? "active box" : "inactive box"
-        rowDiv.appendChild(block)
+    let rowToRender = (genration - 1) % height
+
+    context.fillStyle = "#ff000020"
+    context.fillRect(0, SCALE_FACTOR * (rowToRender + 1), window.innerWidth, SCALE_FACTOR)
+    context.clearRect(0, SCALE_FACTOR * (rowToRender), window.innerWidth, SCALE_FACTOR)
+    for (let [i, value] of Object.entries(row)) {
+        context.fillStyle = value ? `rgba(0, 0, 0, ${clamp(1 / SCALE_FACTOR * 300, 50, 100)}%)` : `rgba(255, 255, 255, ${clamp(1 / SCALE_FACTOR * 300, 50, 100)}%)`
+        context.fillRect(extraWidth / 2 + SCALE_FACTOR * i, SCALE_FACTOR * (rowToRender), SCALE_FACTOR - 1, SCALE_FACTOR - 1)
     }
-    return rowDiv;
 }
 
 function scroll() {
-    CADiv.removeChild(CADiv.childNodes[0])
-    CADiv.appendChild(renderRow(getNextRow()))
+    console.log('scrolling')
+    context.fillStyle = "#00000000"
+    context.fillRect(0, SCALE_FACTOR * (genration - 1), window.innerWidth, SCALE_FACTOR)
+    renderRow(getNextRow(), genration)
 }
 
 function loop() {
-    CADiv.appendChild(renderRow(getNextRow()))
-    if (genration > height) {
-        clearInterval(mainLoop)
-        scrollLoop = setInterval(scroll, 1000)
-    }
+    renderRow(getNextRow(), genration)
 }
 
 function setRule() {
-    setRuleNo(typeof parseInt(document.getElementById("ruleNo").value)=="number"?
-    document.getElementById("ruleNo").value:0)
+    setRuleNo(typeof parseInt(document.getElementById("ruleNo").value) == "number" ?
+        document.getElementById("ruleNo").value : 0)
 }
 
 function setRandomRule() {
